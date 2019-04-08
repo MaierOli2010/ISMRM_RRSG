@@ -1,4 +1,4 @@
 *.png
-*__pychache__*
+*__pycache__*
 output
 *.h5
