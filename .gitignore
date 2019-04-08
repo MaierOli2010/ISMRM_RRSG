@@ -1,0 +1,4 @@
+*.png
+*__pychache__*
+output
+*.h5
