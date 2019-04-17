@@ -41,7 +41,7 @@ Please refer to the documentaiton of [bart](https://github.com/mrirecon/bart) fo
 
 Running the reconstruction:
 -------------------------
-First download the challenge data ([goettingen](http://wwwuser.gwdg.de/~muecker1/rrsg_challenge.zip), [NYU](https://cai2r.net/sites/default/files/software/rrsg_challenge.zip)), extrakt it, and copy the two .h5 files into the ISMRM_RRSG root folder.
+First download the challenge data ([goettingen](http://wwwuser.gwdg.de/~muecker1/rrsg_challenge.zip), [NYU](https://cai2r.net/sites/default/files/software/rrsg_challenge.zip)), extract it, and copy the two .h5 files into the ISMRM_RRSG root folder.
 Use any shell to navigate to the root folder of ISMRM_RRSG and simply type:
 ```
 ./run_acc
