@@ -7,7 +7,9 @@ ISMRM_RRSG
 
 Currently runs only on GPUs due to a limitation in the GPyFFT package.
 
-Installing dependencies:
+The Software is tested on Linux using the latest Nvidia driver but should be compatible with older drivers as well as different hardware (AMD). The following Installation Guide is targeted at Ubuntu but should work on any distribution provided the required packages are present (could be differently named).
+
+Quick Installing Guide:
 ---------------
 First make sure that you have a working OpenCL installation
   - OpenCL is usually shipped with GPU driver (Nvidia/AMD)
