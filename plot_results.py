@@ -142,3 +142,4 @@ for j in range(data.shape[0]):
     ax[j].imshow(np.abs(data[j][-1]), cmap='gray')
     ax[j].text(data[j].shape[-1]-25, data[j].shape[-1]-5, labels[j], color="w")
 plt.savefig("Heart.png", dpi=300)
+input("Press any Key to exit...")
