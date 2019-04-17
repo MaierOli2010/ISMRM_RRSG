@@ -35,6 +35,8 @@ Possible restart of system after installing new drivers
     pip install pyopencl
     ```
 Please refer to the documentaiton of [bart](https://github.com/mrirecon/bart) for a detailed explanation on how to set up the toolbox.
+
+
 Running the recosntruction:
 -------------------------
 Navigate to the root folder of ISMRM_RRSG and simply type:
@@ -43,3 +45,4 @@ Navigate to the root folder of ISMRM_RRSG and simply type:
 ```
 to run the reconstruction for brain and heart data with increasing accelaration.
 After reconstruction is finished, the required plots will be automatically generated and saved in the root folder.
+Regularization can be changed or turned off by changing the value of ```lambd``` in ```default.ini```. The .ini file will be automatically generated the first time the code is run. The ```tol``` parameter can be used to change the desired toleranze of the optimization scheme. ```max_iters``` defines the maximum number of CG iterations.
