@@ -23,7 +23,7 @@ Possible restart of system after installing new drivers
   - Build or download binarys of [clFFT](https://github.com/clMathLibraries/clFFT)
     - Please refer to the [clFFT](https://github.com/clMathLibraries/clFFT) docs regarding building
     - If build from source symlink clfft libraries from lib64 to the lib folder and run ``` ldconfig ```
-  - Build GPyFFT](https://github.com/geggo/gpyfft) 
+  - Build [GPyFFT](https://github.com/geggo/gpyfft) 
     ```
     python setup.py build_ext bdist_wheel
     pip install ./dist/YOUR-WHEEL-NAME.whl
