@@ -35,6 +35,8 @@ Possible restart of system after installing new drivers
     pip install pyopencl
     ```
 Please refer to the documentaiton of [bart](https://github.com/mrirecon/bart) for a detailed explanation on how to set up the toolbox.
+
+
 Running the recosntruction:
 -------------------------
 Navigate to the root folder of ISMRM_RRSG and simply type:
