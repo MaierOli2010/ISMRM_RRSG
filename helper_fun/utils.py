@@ -44,7 +44,6 @@ def gen_default_config():
     config = configparser.ConfigParser()
     config['DEFAULT'] = {}
     config['DEFAULT']["max_iters"] = '300'
-    config['DEFAULT']["display_iterations"] = 'True'
     config['DEFAULT']["tol"] = '5e-3'
     config['DEFAULT']["lambd"] = '0'
     with open('default.ini', 'w') as configfile:
