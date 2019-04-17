@@ -276,7 +276,7 @@ if __name__ == '__main__':
       '--acc', default=1, type=int, dest='acc',
       help='Desired acceleration factor.')
     parser.add_argument(
-      '--ogf', default="1/3", type=str, dest='ogf',
+      '--ogf', default="1.706", type=str, dest='ogf',
       help='Overgridfactor. 1.706 for Brain, 1+1/3 for heart data.')
     args = parser.parse_args()
     main(args)
