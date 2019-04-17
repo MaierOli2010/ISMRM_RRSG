@@ -12,21 +12,6 @@ from transforms.pyopencl_nufft import PyOpenCLNUFFT
 DTYPE = np.complex64
 DTYPE_real = np.float32
 
-
-def prime_factors(n):
-    i = 2
-    factors = []
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            n //= i
-            factors.append(i)
-    if n > 1:
-        factors.append(n)
-    return factors
-
-
 def NUFFT(par):
     NC = par["NC"]
     NSlice = par["NSlice"]
@@ -45,8 +30,8 @@ def gen_default_config():
     config['DEFAULT'] = {}
     config['DEFAULT']["max_iters"] = '300'
     config['DEFAULT']["display_iterations"] = 'True'
-    config['DEFAULT']["tol"] = '5e-3'
-    config['DEFAULT']["lambd"] = '0'
+    config['DEFAULT']["tol"] = '1e-30'
+    config['DEFAULT']["lambd"] = '5e-1'
     with open('default.ini', 'w') as configfile:
         config.write(configfile)
 

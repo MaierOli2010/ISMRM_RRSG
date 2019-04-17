@@ -37,7 +37,7 @@ os.chdir(cwd)
 data = np.squeeze(np.array(data))
 res = np.array(res)
 
-ref = data[0][5]
+ref = data[0][-1]
 
 Delta = []
 for j in range(1, data.shape[0]):

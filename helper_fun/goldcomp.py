@@ -16,9 +16,7 @@ def cmp(k, cmp_type=None):
     else:
         return -5
 
-    w = np.abs(np.linspace(-N/2, N/2, N))/(N/2)  # -N/2 N/2
-# Scaling to preserfe intensity of fully sampled image
-#    w = w*(np.pi/4)/nspokes
+    w = np.abs(np.linspace(-N/2, N/2, N))/(N/2) # ramp from 1...1
     w = np.repeat(w, nspokes, 0)
     w = np.reshape(w, (N, nspokes)).T
     return w
