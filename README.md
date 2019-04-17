@@ -12,9 +12,9 @@ Installing dependencies:
 First make sure that you have a working OpenCL installation
   - OpenCL is usually shipped with GPU driver (Nvidia/AMD)
   - Install the ocl_icd and the OpenCL-Headers
-  ```
+    ```
     apt-get install ocl_icd* opencl-headers
-  ```  
+    ```  
 Possible restart of system after installing new drivers
   - Build [clinfo](https://github.com/Oblomov/clinfo)
   - Run clinfo in terminal and check for errors
@@ -27,9 +27,9 @@ Possible restart of system after installing new drivers
     pip install ./dist/YOUR-WHEEL-NAME.whl
     ```
   - install pyfftw
-  ```
+    ```
     apt-get install pyfftw
-  ```    
+    ```    
   - Finally install [PyOpenCL](https://github.com/inducer/pyopencl)
     ```
     pip install pyopencl
