@@ -28,10 +28,6 @@ Possible restart of system after installing new drivers
     python setup.py build_ext bdist_wheel
     pip install ./dist/YOUR-WHEEL-NAME.whl
     ```
-  - install pyfftw
-    ```
-    pip install pyfftw
-    ```    
   - Finally install [PyOpenCL](https://github.com/inducer/pyopencl)
     ```
     pip install pyopencl
