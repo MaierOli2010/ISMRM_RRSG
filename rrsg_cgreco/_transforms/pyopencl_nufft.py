@@ -24,7 +24,7 @@ import numpy as np
 import pyopencl as cl
 import pyopencl.array as clarray
 from gpyfft.fft import FFT
-from helper_fun.calckbkernel import calckbkernel
+from rrsg_cgreco._helper_fun.calckbkernel import calckbkernel
 
 
 class Program(object):

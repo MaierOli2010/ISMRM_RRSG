@@ -2,3 +2,4 @@
 output
 *.h5
 *.ini
+*egg*

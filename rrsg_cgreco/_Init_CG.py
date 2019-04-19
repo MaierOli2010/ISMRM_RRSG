@@ -25,9 +25,9 @@ import h5py
 import pyopencl as cl
 import pyopencl.array as clarray
 import argparse
-from helper_fun import goldcomp as goldcomp
-from helper_fun import utils
-from CG_reco import CGReco as CGReco
+from rrsg_cgreco._helper_fun import goldcomp as goldcomp
+from rrsg_cgreco._helper_fun import utils
+from rrsg_cgreco._CG_reco import CGReco as CGReco
 import sys
 
 DTYPE = np.complex64
@@ -37,8 +37,37 @@ path = os.environ["TOOLBOX_PATH"] + "/python/"
 sys.path.append(path)
 from bart import bart
 
+def run(config='default',InScale=1,denscor=1,
+        data='rawdata_brain_radial_96proj_12ch.h5',acc=1,
+        ogf='1.706'):
+    '''
+    Function to run the CG reco of radial data.
+    '''
+    parser = argparse.ArgumentParser(description='CG Sense Reconstruction')
+    parser.add_argument(
+      '--config', default=config, dest='config',
+      help='Name of config file to use (assumed to be in the same folder). \
+ If not specified, use default parameters.')
+    parser.add_argument(
+      '--InScale', default=InScale, type=int, dest='inscale',
+      help='Perform Intensity Scaling.')
+    parser.add_argument(
+      '--denscor', default=denscor, type=int, dest='denscor',
+      help='Perform density correction.')
+    parser.add_argument(
+      '--data', default=data, dest='data',
+      help='Path to the h5 data file.')
+    parser.add_argument(
+      '--acc', default=acc, type=int, dest='acc',
+      help='Desired acceleration factor.')
+    parser.add_argument(
+      '--ogf', default=ogf, type=str, dest='ogf',
+      help='Overgridfactor. 1.706 for Brain, 1+1/3 for heart data.')
+    args = parser.parse_args()
+    _run_reco(args)
 
-def main(args):
+
+def _run_reco(args):
     np.seterr(divide='ignore', invalid='ignore')
 # Create par struct to store parameters
     par = {}
@@ -57,31 +86,31 @@ def main(args):
     if "heart" in args.data:
         if args.acc == 2:
             R = 33
-            trajectory = h5_dataset.get(h5_dataset_trajectory_name).value[
+            trajectory = h5_dataset.get(h5_dataset_trajectory_name)[
                 :, :, :33]
-            rawdata = h5_dataset.get(h5_dataset_rawdata_name).value[
+            rawdata = h5_dataset.get(h5_dataset_rawdata_name)[
                 :, :, :33, :]
         elif args.acc == 3:
             R = 22
-            trajectory = h5_dataset.get(h5_dataset_trajectory_name).value[
+            trajectory = h5_dataset.get(h5_dataset_trajectory_name)[
                 :, :, :22]
-            rawdata = h5_dataset.get(h5_dataset_rawdata_name).value[
+            rawdata = h5_dataset.get(h5_dataset_rawdata_name)[
                 :, :, :22, :]
         elif args.acc == 4:
             R = 11
-            trajectory = h5_dataset.get(h5_dataset_trajectory_name).value[
+            trajectory = h5_dataset.get(h5_dataset_trajectory_name)[
                 :, :, :11]
-            rawdata = h5_dataset.get(h5_dataset_rawdata_name).value[
+            rawdata = h5_dataset.get(h5_dataset_rawdata_name)[
                 :, :, :11, :]
         else:
             R = 55
-            trajectory = h5_dataset.get(h5_dataset_trajectory_name).value[...]
-            rawdata = h5_dataset.get(h5_dataset_rawdata_name).value[...]
+            trajectory = h5_dataset.get(h5_dataset_trajectory_name)[...]
+            rawdata = h5_dataset.get(h5_dataset_rawdata_name)[...]
     else:
         R = args.acc
-        trajectory = h5_dataset.get(h5_dataset_trajectory_name).value[
+        trajectory = h5_dataset.get(h5_dataset_trajectory_name)[
             :, :, ::R]
-        rawdata = h5_dataset.get(h5_dataset_rawdata_name).value[
+        rawdata = h5_dataset.get(h5_dataset_rawdata_name)[
             :, :, ::R, :]
 
     [dummy, nFE, nSpokes, nCh] = rawdata.shape
@@ -293,4 +322,4 @@ if __name__ == '__main__':
       '--ogf', default="1.706", type=str, dest='ogf',
       help='Overgridfactor. 1.706 for Brain, 1+1/3 for heart data.')
     args = parser.parse_args()
-    main(args)
+    _run_reco(args)

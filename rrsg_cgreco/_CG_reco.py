@@ -22,7 +22,7 @@ import numpy as np
 import time
 import pyopencl as cl
 import pyopencl.array as clarray
-from transforms.pyopencl_nufft import PyOpenCLNUFFT as NUFFT
+from rrsg_cgreco._transforms.pyopencl_nufft import PyOpenCLNUFFT as NUFFT
 
 DTYPE = np.complex64
 DTYPE_real = np.float32

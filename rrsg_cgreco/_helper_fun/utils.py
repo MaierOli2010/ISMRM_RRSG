@@ -21,7 +21,7 @@ limitations under the License.
 """
 import numpy as np
 import configparser
-from transforms.pyopencl_nufft import PyOpenCLNUFFT
+from rrsg_cgreco._transforms.pyopencl_nufft import PyOpenCLNUFFT
 
 DTYPE = np.complex64
 DTYPE_real = np.float32
