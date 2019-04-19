@@ -7,7 +7,7 @@ setup(name='rrsg_cgreco',
       author='Oliver Maier',
       author_email='oliver.maier@tugraz.at',
       license='Apache-2.0',
-      packages=['rrsg_cgreco'],
+      packages=setuptools.find_packages(),
       install_requires=[
         'pyopencl',
         'numpy',
