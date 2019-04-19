@@ -84,7 +84,7 @@ class PyOpenCLNUFFT:
         self.fwd_NUFFT = self.NUFFT
         self.adj_NUFFT = self.NUFFTH
         self.prg = Program(self.ctx,
-                           open('./kernels/opencl_nufft_kernels.c').read())
+                           open('./rrsg_cgreco/kernels/opencl_nufft_kernels.c').read())
 
     def __del__(self):
         del self.traj

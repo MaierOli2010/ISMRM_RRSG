@@ -60,7 +60,7 @@ for j in range(res.shape[0]):
     ax_res.append(plt.plot(np.log10(res[j]),
                            label=labels[j], linestyle=linestyle[j]))
 plt.legend()
-plt.savefig("Conv_rate_small_delta.png")
+plt.savefig("./figures/Conv_rate_small_delta.png")
 
 plt.ion()
 figure = plt.figure(figsize=(6, 5))
@@ -75,7 +75,7 @@ for j in range(Delta.shape[0]):
     ax_res.append(plt.plot(np.log10(Delta[j]),
                            label=labels[j], linestyle=linestyle[j]))
 plt.legend()
-plt.savefig("Conv_rate_big_delta.png",dpi=300)
+plt.savefig("./figures/Conv_rate_big_delta.png",dpi=300)
 
 plt.ion()
 figure = plt.figure(figsize=(5, 6))
@@ -103,7 +103,7 @@ for j in range(data.shape[0]):
         ax[3*j].set_title("Single coil")
         ax[3*j+1].set_title("Initial")
         ax[3*j+2].set_title("Final")
-plt.savefig("Comparison_Reconstruction_Brain.png")
+plt.savefig("./figures/Comparison_Reconstruction_Brain.png")
 # Heart #######################################################################
 cwd = os.getcwd()
 outdir = "./output/heart/"
@@ -141,5 +141,5 @@ labels = ["55", "33", "22", "11"]
 for j in range(data.shape[0]):
     ax[j].imshow(np.abs(data[j][-1]), cmap='gray')
     ax[j].text(data[j].shape[-1]-25, data[j].shape[-1]-5, labels[j], color="w")
-plt.savefig("Heart.png", dpi=300)
+plt.savefig("./figures/Heart.png", dpi=300)
 input("Press any Key to exit...")

@@ -68,7 +68,7 @@ class CGReco:
                            overgridfactor=par["ogf"])
 
         self.prg = Program(self.ctx,
-                           open('./kernels/opencl_operator_kernels.c').read())
+                           open('./rrsg_cgreco/kernels/opencl_operator_kernels.c').read())
 
     def eval_fwd_kspace(self, y, x, wait_for=[]):
         return self.prg.operator_fwd(self.queue,

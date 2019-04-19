@@ -247,11 +247,11 @@ def main(args):
     elif "brain" in args.data:
         outdir += "/brain"
     if not os.path.exists('./output'):
-        os.makedirs('./output')
+        os.makedirs('output')
     if not os.path.exists('./output/' + outdir):
         os.makedirs("output/" + outdir)
     cwd = os.getcwd()
-    os.chdir("output/" + outdir)
+    os.chdir("./output" + outdir)
     f = h5py.File("CG_reco_InScale_" + str(args.inscale) + "_denscor_"
                   + str(args.denscor) + "_reduction_" + str(R) +
                   "_acc_" + str(args.acc) + "_" + name, "w")
