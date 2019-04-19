@@ -30,7 +30,7 @@ Possible restart of system after installing new drivers
     ```
   - install pyfftw
     ```
-    apt-get install pyfftw
+    pip install pyfftw
     ```    
   - Finally install [PyOpenCL](https://github.com/inducer/pyopencl)
     ```
