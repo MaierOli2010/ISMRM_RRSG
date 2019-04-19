@@ -28,10 +28,12 @@ Possible restart of system after installing new drivers
     python setup.py build_ext bdist_wheel
     pip install ./dist/YOUR-WHEEL-NAME.whl
     ```
-  - Finally install [PyOpenCL](https://github.com/inducer/pyopencl)
+  - Navigate to the root directory of ISMRM_RRSG typing
     ```
-    pip install pyopencl
+    pip install
     ```
+    should take care of the other dependencies using PyPI and install the package.
+    
 Please refer to the documentaiton of [bart](https://github.com/mrirecon/bart) for a detailed explanation on how to set up the toolbox.
 
 
