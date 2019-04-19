@@ -9,6 +9,8 @@ Currently runs only on GPUs due to a limitation in the GPyFFT package.
 
 The Software is tested on Linux using the latest Nvidia driver but should be compatible with older drivers as well as different hardware (AMD). The following Installation Guide is targeted at Ubuntu but should work on any distribution provided the required packages are present (could be differently named).
 
+* It is highly recommended to use an Anaconda environment
+
 Quick Installing Guide:
 ---------------
 First make sure that you have a working OpenCL installation
@@ -28,7 +30,7 @@ Possible restart of system after installing new drivers
     python setup.py build_ext bdist_wheel
     pip install ./dist/YOUR-WHEEL-NAME.whl
     ```
-  - Navigate to the root directory of ISMRM_RRSG typing
+  - Navigate to the root directory of ISMRM_RRSG and typing
     ```
     pip install
     ```
