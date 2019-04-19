@@ -32,7 +32,7 @@ Possible restart of system after installing new drivers
     ```
   - Navigate to the root directory of ISMRM_RRSG and typing
     ```
-    pip install
+    pip install .
     ```
     should take care of the other dependencies using PyPI and install the package.
     
