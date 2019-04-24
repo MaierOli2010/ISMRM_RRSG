@@ -37,8 +37,9 @@ path = os.environ["TOOLBOX_PATH"] + "/python/"
 sys.path.append(path)
 from bart import bart
 
-def run(config='default',InScale=1,denscor=1,
-        data='rawdata_brain_radial_96proj_12ch.h5',acc=1,
+
+def run(config='default', InScale=1, denscor=1,
+        data='rawdata_brain_radial_96proj_12ch.h5', acc=1,
         ogf='1.706'):
     '''
     Function to run the CG reco of radial data.
@@ -78,7 +79,7 @@ def _run_reco(args):
         raise ValueError("No data file specified")
 
     name = args.data
-    h5_dataset = h5py.File(name)
+    h5_dataset = h5py.File(name, 'r')
     par["file"] = h5_dataset
     h5_dataset_rawdata_name = 'rawdata'
     h5_dataset_trajectory_name = 'trajectory'
