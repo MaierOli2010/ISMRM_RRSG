@@ -24,13 +24,17 @@ Possible restart of system after installing new drivers
   - Run clinfo in terminal and check for errors
 
 Optional: Make a new cona environment (with pip python and cython):
-    ```
+
     conda create -n ENV_NAME pip python cython
-    ```
+    
 Install the bart toolbox
 Please refer to the documentaiton of [bart](https://github.com/mrirecon/bart) for a detailed explanation on how to set up the toolbox.
 
-  - Navigate to the root directory of ISMRM_RRSG and typing
+  - Navigate to the root directory of ISMRM_RRSG  and activate the conda environment
+    ```
+    source activate ENV_NAME
+    ```
+    Finally
     ```
     pip install .
     ```
