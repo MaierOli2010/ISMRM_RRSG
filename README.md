@@ -1,9 +1,9 @@
 ISMRM_RRSG
 ===================================
 
-* Requires [PyOpenCL](https://github.com/inducer/pyopencl) package
-* Requires [GPyFFT](https://github.com/geggo/gpyfft) package 
+* Requires Cython, pip, python3
 * Requires [bart](https://github.com/mrirecon/bart)
+* Requires a working OpenCL environment
 
 Currently runs only on GPUs due to a limitation in the GPyFFT package.
 
@@ -22,21 +22,20 @@ First make sure that you have a working OpenCL installation
 Possible restart of system after installing new drivers
   - Build [clinfo](https://github.com/Oblomov/clinfo)
   - Run clinfo in terminal and check for errors
-  - Build or download binarys of [clFFT](https://github.com/clMathLibraries/clFFT)
-    - Please refer to the [clFFT](https://github.com/clMathLibraries/clFFT) docs regarding building
-    - If build from source symlink clfft libraries from lib64 to the lib folder and run ``` ldconfig ```
-  - Build [GPyFFT](https://github.com/geggo/gpyfft) 
+
+Optional: Make a new cona environment (with pip python and cython):
     ```
-    python setup.py build_ext bdist_wheel
-    pip install ./dist/YOUR-WHEEL-NAME.whl
+    conda create -n ENV_NAME pip python cython
     ```
+Install the bart toolbox
+Please refer to the documentaiton of [bart](https://github.com/mrirecon/bart) for a detailed explanation on how to set up the toolbox.
+
   - Navigate to the root directory of ISMRM_RRSG and typing
     ```
     pip install .
     ```
     should take care of the other dependencies using PyPI and install the package.
     
-Please refer to the documentaiton of [bart](https://github.com/mrirecon/bart) for a detailed explanation on how to set up the toolbox.
 
 
 Running the reconstruction:

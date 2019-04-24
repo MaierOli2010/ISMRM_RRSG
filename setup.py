@@ -8,10 +8,17 @@ setup(name='rrsg_cgreco',
       author_email='oliver.maier@tugraz.at',
       license='Apache-2.0',
       packages=setuptools.find_packages(),
+      setup_requires=["cython"],
       install_requires=[
+        'cython',
         'pyopencl',
         'numpy',
         'h5py',
 	'mako',
-	'matplotlib'],
+	'matplotlib',
+	'gpyfft @ git+https://github.com/geggo/gpyfft.git#egg=gpyfft'],
+      entry_points={
+        'console_scripts': ['rrsg_cgreco = rrsg_cgreco._Init_CG:run',
+                            'rrsg_plotresults = rrsg_cgreco._plot_results:run'],
+        },
       zip_safe=False) 
