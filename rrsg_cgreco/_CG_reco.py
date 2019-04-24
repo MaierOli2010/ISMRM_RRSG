@@ -23,6 +23,7 @@ import time
 import pyopencl as cl
 import pyopencl.array as clarray
 from rrsg_cgreco._transforms.pyopencl_nufft import PyOpenCLNUFFT as NUFFT
+from pkg_resources import resource_filename
 
 DTYPE = np.complex64
 DTYPE_real = np.float32
@@ -67,8 +68,10 @@ class CGReco:
         self.NUFFT = NUFFT(self.ctx, self.queue, par,
                            overgridfactor=par["ogf"])
 
-        self.prg = Program(self.ctx,
-                           open('./rrsg_cgreco/kernels/opencl_operator_kernels.c').read())
+        self.prg = Program(
+            self.ctx,
+            open(resource_filename(
+                'rrsg_cgreco', 'kernels/opencl_operator_kernels.c')).read())
 
     def eval_fwd_kspace(self, y, x, wait_for=[]):
         return self.prg.operator_fwd(self.queue,

@@ -24,6 +24,7 @@ import numpy as np
 import pyopencl as cl
 import pyopencl.array as clarray
 from gpyfft.fft import FFT
+from pkg_resources import resource_filename
 from rrsg_cgreco._helper_fun.calckbkernel import calckbkernel
 
 
@@ -83,8 +84,9 @@ class PyOpenCLNUFFT:
         self.gridsize = par["N"]
         self.fwd_NUFFT = self.NUFFT
         self.adj_NUFFT = self.NUFFTH
-        self.prg = Program(self.ctx,
-                           open('./rrsg_cgreco/kernels/opencl_nufft_kernels.c').read())
+        self.prg = Program(
+            self.ctx, open(resource_filename(
+                'rrsg_cgreco', 'kernels/opencl_nufft_kernels.c')).read())
 
     def __del__(self):
         del self.traj

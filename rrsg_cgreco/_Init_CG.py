@@ -78,7 +78,8 @@ def _run_reco(args):
     if args.data == '':
         raise ValueError("No data file specified")
 
-    name = args.data
+    name = os.path.normpath(args.data)
+    fname = name.split(os.sep)[-1]
     h5_dataset = h5py.File(name, 'r')
     par["file"] = h5_dataset
     h5_dataset_rawdata_name = 'rawdata'
@@ -278,13 +279,13 @@ def _run_reco(args):
         outdir += "/brain"
     if not os.path.exists('./output'):
         os.makedirs('output')
-    if not os.path.exists('./output/' + outdir):
-        os.makedirs("output/" + outdir)
+    if not os.path.exists('./output' + outdir):
+        os.makedirs("./output" + outdir)
     cwd = os.getcwd()
     os.chdir("./output" + outdir)
     f = h5py.File("CG_reco_InScale_" + str(args.inscale) + "_denscor_"
                   + str(args.denscor) + "_reduction_" + str(R) +
-                  "_acc_" + str(args.acc) + "_" + name, "w")
+                  "_acc_" + str(args.acc) + "_" + fname, "w")
     f.create_dataset("images_ifft_", images.shape, dtype=DTYPE,
                      data=images)
     f.create_dataset("images_ifft_coils_", images_coils.shape, dtype=DTYPE,
