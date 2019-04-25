@@ -3,6 +3,7 @@ ISMRM_RRSG
 
 * Requires Cython, pip, python3
 * Requires [bart](https://github.com/mrirecon/bart)
+* Requires [clfft](https://github.com/clMathLibraries/clFFT)
 * Requires a working OpenCL environment
 
 Currently runs only on GPUs due to a limitation in the GPyFFT package.
@@ -22,6 +23,14 @@ First make sure that you have a working OpenCL installation
 Possible restart of system after installing new drivers
   - Build [clinfo](https://github.com/Oblomov/clinfo)
   - Run clinfo in terminal and check for errors
+  
+Install clFFT library:  
+  - Either use the package repository,e.g.:
+    ```
+    apt-get install libclfft*
+    ```  
+  - Or download a prebuild binary of [clfft](https://github.com/clMathLibraries/clFFT) 
+  - Or build from source and install.
 
 Optional: Make a new cona environment (with pip python and cython):
 
